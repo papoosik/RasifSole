@@ -1,0 +1,42 @@
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="{% static 'assets/signupandlogin.css' %}">
+</head>
+<body>
+<center>
+<div class="form-box">
+    <form class="form" method="post">
+        {% csrf_token %}
+        <span class="title">Регистрация</span>
+
+        <div class="form-container">
+            <input type="text" name="username" class="input" placeholder="Имя пользователя" value="{{ form.username.value }}">
+            {% if form.username.errors %}
+                <div class="error">{{ form.username.errors }}</div>
+            {% endif %}
+
+            <input type="password" name="password1" class="input" placeholder="Пароль">
+            {% if form.password1.errors %}
+                <div class="error">{{ form.password1.errors }}</div>
+            {% endif %}
+
+            <input type="password" name="password2" class="input" placeholder="Подтверждение пароля">
+            {% if form.password2.errors %}
+                <div class="error">{{ form.password2.errors }}</div>
+            {% endif %}
+        </div>
+
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+
+    <div class="form-section">
+        <p>Есть аккаунт? <a href="{% url 'login' %}">Войти</a></p>
+    </div>
+</div>
+</center>
+</body>
+</html>

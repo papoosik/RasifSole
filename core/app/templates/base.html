@@ -1,0 +1,152 @@
+{% load static %}
+<html lang="en">
+<head>
+
+  <!-- Site made with Mobirise Website Builder v5.9.18, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.9.18, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+  <meta name="description" content="">
+
+
+  <title>Home</title>
+  <link rel="stylesheet" href="{% static 'assets/web/assets/mobirise-icons2/mobirise2.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/parallax/jarallax.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/dropdown/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Dela+Gothic+One:400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dela+Gothic+One:400&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Golos+Text:400,500,600,700,800,900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Golos+Text:400,500,600,700,800,900&display=swap"></noscript>
+  <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}"><link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+
+
+  <link rel="stylesheet" href="{% static 'assets/btncart.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/signupandlogin.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/logoutandlogin_buttons.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/addtocartandsize.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/card.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/button.css' %}">
+</head>
+<body>
+
+  <section data-bs-version="5.1" class="menu menu6 cid-umlil0oXGs" once="menu" id="menu06-1">
+
+
+	<nav class="navbar navbar-dropdown opacityScrollOff navbar-fixed-top navbar-expand-lg">
+		<div class="container">
+			<div class="navbar-brand">
+				<span class="navbar-logo">
+					<a href="{% url 'index' %}">
+						<img src="{% static 'assets/images/logo.png' %}" alt="Mobirise Website Builder" style="height: 8.8rem;">
+					</a>
+				</span>
+
+			</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<div class="hamburger">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</button>
+			<div class="collapse navbar-collapse opacityScrollOff" id="navbarSupportedContent">
+				<ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item">
+                    {% for i in categories %}
+                        <li>
+						<a class="nav-link link text-black display-4" href="{% url 'catalog' i.title %}">{{ i.title }}</a>
+                        </li>
+                    {% endfor %}
+                    {% if user.is_authenticated %}
+<!--                    <button data-quantity="0" class="btn-cart">-->
+<!--          <svg class="icon-cart" viewBox="0 0 24.38 30.52" height="30.52" width="24.38" xmlns="http://www.w3.org/2000/svg">-->
+<!--            <title>icon-cart</title>-->
+<!--            <path transform="translate(-3.62 -0.85)" d="M28,27.3,26.24,7.51a.75.75,0,0,0-.76-.69h-3.7a6,6,0,0,0-12,0H6.13a.76.76,0,0,0-.76.69L3.62,27.3v.07a4.29,4.29,0,0,0,4.52,4H23.48a4.29,4.29,0,0,0,4.52-4ZM15.81,2.37a4.47,4.47,0,0,1,4.46,4.45H11.35a4.47,4.47,0,0,1,4.46-4.45Zm7.67,27.48H8.13a2.79,2.79,0,0,1-3-2.45L6.83,8.34h3V11a.76.76,0,0,0,1.52,0V8.34h8.92V11a.76.76,0,0,0,1.52,0V8.34h3L26.48,27.4a2.79,2.79,0,0,1-3,2.44Zm0,0"></path>-->
+<!--          </svg>-->
+<!--          <span class="quantity"></span>-->
+<!--        </button>-->
+                    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+<button class="brutalist-button">
+  <div class="button-text">
+    <span></span>
+    <span>LOGOUT</span>
+  </div>
+</button>
+
+    </form>
+                    <a style="font-family: 'Dela Gothic One', display;" href="{% url 'create_shoes' %}" class="btn">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path></svg> Создать
+    </span>
+</a>
+        {% else %}
+        <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+<button class="brutalist-button">
+  <div class="button-text">
+    <span>lOGIN / </span>
+    <span>SIGN UP</span>
+  </div>
+</button>
+
+    </form>
+
+                    {% endif %}
+
+
+
+
+
+			</div>
+		</div>
+	</nav>
+</section>
+
+
+
+{% block content %}
+
+{% endblock %}
+
+<section data-bs-version="5.1" class="footer2 cid-umlqBf6zoA" once="footers" id="footer02-5">
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6 center mt-2 mb-3">
+                <p class="mbr-fonts-style copyright mb-0 display-5">contact us</p>
+            </div>
+            <div class="col-12 col-lg-6 center">
+                <div class="row-links mt-2 mb-3">
+                    <ul class="row-links-soc">
+
+
+
+
+                    <li class="row-links-soc-item mbr-fonts-style display-7">
+                            <a href="#" class="text-primary">Instagram</a>
+                        </li><li class="row-links-soc-item mbr-fonts-style display-7">
+                            <a href="#" class="text-primary">TikTok</a>
+                        </li><li class="row-links-soc-item mbr-fonts-style display-7">
+                            <a href="#" class="text-primary">YouTube</a>
+                        </li><li class="row-links-soc-item mbr-fonts-style display-7">
+                            <a href="#" class="text-primary">Twitter</a>
+                        </li></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="{% static 'assets/bootstrap/js/bootstrap.bundle.min.js' %}"></script>  <script src="{% static 'assets/parallax/jarallax.js' %}"></script>  <script src="{% static 'assets/ytplayer/index.js' %}"></script>  <script src="{% static 'assets/dropdown/js/navbar-dropdown.js' %}"></script>  <script src="{% static 'assets/theme/js/script.js' %}"></script>
+</body>
+</html>
+

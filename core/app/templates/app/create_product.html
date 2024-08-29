@@ -1,0 +1,24 @@
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'assets/signupandlogin.css' %}">
+    <meta charset="UTF-8">
+    <title>Создать продукт</title>
+</head>
+<body>
+<center>
+<div class="form-box">
+    <form class="form" method="post" action="{% url 'create_shoes' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <span class="title">Создать продукт</span>
+
+        <div class="form-container">
+            {{ form.as_p }}
+        </div>
+
+        <button type="submit">Создать</button>
+    </form>
+</div>
+</center>
+</body>
+</html>

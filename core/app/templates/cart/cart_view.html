@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<body>
+{% block content %}
+  <h2>Your Cart</h2>
+  <ul>
+    {% for item in cart_items %}
+      <li>{{ item.product.name }} - Quantity: {{ item.quantity }}</li>
+    {% endfor %}
+  </ul>
+  <a href="/">Continue Shopping</a>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+<html>
+<head><link rel="preload" as="style" href="{%static 'assets/mobirise/css/mbr-additional.css?v=ekGOpQ' %}"><link rel="stylesheet" href="{%static 'assets/mobirise/css/mbr-additional.css?v=ekGOpQ' %}" type="text/css"></head>
+<body>
+{% block content %}
+
+
+ <section data-bs-version="5.1" class="gallery09 cid-umt2DpeyH3 mbr-parallax-background" id="gallery09-b">
+
+    <div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(0, 0, 0);"></div>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-12 col-lg-4 main-text">
+          <div class="">
+            <h5 class="mbr-section-title mbr-fonts-style mt-0 mb-4 display-5">{{ shoe.category }}<br>{{ shoe.brand }}<br><br>{{ shoe.collaboration }}
+              <div>{{ shoe.title }}</div><div><br></div><br><div>$ {{ shoe.price }}</div><div></div>
+            </h5>
+
+            <div >
+
+              <br>
+              <h5 class="mbr-section-title mbr-fonts-style mt-0 mb-4 display-5">{{ shoe.color }} </h5>
+              <h5 class="mbr-section-title mbr-fonts-style mt-0 mb-4 display-5">{{ shoe.season }} </h5>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-8 side-features row">
+          <div class="item features-image col-12 col-md-6 col-lg-6 active">
+            <div class="item-wrapper">
+              <div class="item-img">
+                <img src="{{ shoe.picture_side.url }}" alt="Mobirise Website Builder" title="" data-slide-to="4" data-bs-slide-to="4">
+              </div>
+            </div>
+          </div>
+          <div class="item features-image col-12 col-md-6 col-lg-6">
+            <div class="item-wrapper">
+              <div class="item-img">
+                <img src="{{ shoe.picture_forward.url }}" alt="Mobirise Website Builder" title="" data-slide-to="0" data-bs-slide-to="0">
+              </div>
+            </div>
+          </div>
+          <div class="item features-image col-12 col-md-6 col-lg-6">
+            <div class="item-wrapper">
+              <div class="item-img">
+                <img src="{{ shoe.picture_back.url }}" alt="Mobirise Website Builder" title="" data-slide-to="1" data-bs-slide-to="1">
+              </div>
+            </div>
+          </div>
+          <div class="item features-image col-12 col-md-6 col-lg-6">
+            <div class="item-wrapper">
+              <div class="item-img">
+                <img src="{{ shoe.picture_sole.url }}" alt="Mobirise Website Builder" title="" data-slide-to="2" data-bs-slide-to="2">
+              </div>
+            </div>
+          </div>
+          <h5 class="mbr-section-title mbr-fonts-style mt-0 mb-4 display-5">{{ shoe.description }} </h5> <h5 class="mbr-section-title mbr-fonts-style mt-0 mb-4 display-5">Материал:<br> {{ shoe.material }} </h5><br><br>
+          <a href="{% url 'update_shoes' shoes_id %}" class="btn btn-primary">
+        Изменить продукт
+    </a><br>
+          <a href="{% url 'delete_shoes' shoes_id %}" class="btn btn-danger">
+    Удалить продукт
+</a>
+        </div>
+      </div>
+    </div>
+ </section>
+
+{% endblock %}
+</body>
+</html>

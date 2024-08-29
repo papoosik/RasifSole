@@ -1,0 +1,28 @@
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'assets/signupandlogin.css' %}">
+    <meta charset="UTF-8">
+    <title>Обновление продукта</title>
+</head>
+<body>
+<center>
+<div class="form-box">
+    <form class="form" method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <span class="title">Обновить продукт</span>
+
+        <div class="form-container">
+            {{ form.as_p }}
+        </div>
+
+        <button type="submit">Обновить</button>
+    </form>
+
+    <div class="form-section">
+        <p>Нет аккаунта? <a href="{% url 'signup' %}">Регистрация</a></p>
+    </div>
+</div>
+</center>
+</body>
+</html>

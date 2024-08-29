@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+
+<body>
+{% block content %}
+<section class="gallery1 mbr-gallery cid-umEOJaz2fb mbr-parallax-background" id="gallery01-i">
+
+    <div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(0, 0, 0);">
+    </div>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 content-head">
+                <div class="mb-5">
+                    <h3 class="mbr-section-title mbr-fonts-style align-center m-0 display-2"><strong>{{ category.title }}</strong></h3>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row mbr-gallery">
+            {% for card in shoes_by_category %}
+
+<div class="card">
+  <img src="{{ card.picture_side.url }}" alt="Sofa Image" class="card__image">
+  <div class="card__content">
+      <center>
+
+        <br>
+        <p style="font-family: 'Dela Gothic One', display;" class="card__title">{{ card.brand }}</p>
+        <br>
+        <p style="font-family: 'Dela Gothic One', display;" class="card__title">{{ card.collaboration }}</p>
+        <p style="font-family: 'Dela Gothic One', display;" class="card__title">{{ card.title }}</p>
+        <br>
+          <br>
+        <p style="font-family: 'Dela Gothic One', display;" class="card__title">$ {{ card.price }}</p>
+        <br>
+        <br>
+        <a style="font-family: 'Dela Gothic One', display;" href="{% url 'detail' card.id %}" class="card__button secondary">Подробнее</a>
+      </center>
+  </div>
+</div>
+
+            {% endfor %}
+        </div>
+
+
+    </div>
+</section>
+{% endblock %}
+</body>
+</html>

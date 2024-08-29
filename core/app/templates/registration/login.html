@@ -1,0 +1,40 @@
+
+{% load static %}
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Войти в систему</title>
+    <link rel="stylesheet" href="{% static 'assets/signupandlogin.css' %}">
+</head>
+<body>
+<center>
+<div class="form-box">
+    <form class="form" method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <span class="title">Войти в систему</span>
+
+        <div class="form-container">
+            <input type="text" name="username" class="input" placeholder="Имя пользователя" value="{{ form.username.value }}">
+            {% if form.username.errors %}
+                <div class="error">{{ form.username.errors }}</div>
+            {% endif %}
+
+            <input type="password" name="password" class="input" placeholder="Пароль">
+            {% if form.password.errors %}
+                <div class="error">{{ form.password.errors }}</div>
+            {% endif %}
+
+        </div>
+
+        <button type="submit">Войти</button>
+    </form>
+
+    <div class="form-section">
+        <p>Нет аккаунта? <a href="{% url 'signup' %}">Регистрация</a></p>
+    </div>
+</div>
+</center>
+</body>
+</html>

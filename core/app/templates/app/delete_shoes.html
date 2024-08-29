@@ -1,0 +1,22 @@
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'assets/signupandlogin.css' %}">
+    <meta charset="UTF-8">
+    <title>Удаление продукта</title>
+</head>
+<body>
+<center>
+<div class="form-box">
+    <h2>Удалить продукт</h2>
+    <p>Вы уверены, что хотите удалить продукт <strong>{{ shoes.title }}</strong>?</p>
+
+    <form method="post" action="">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a href="{% url 'index' %}" class="btn btn-secondary">Отмена</a>
+    </form>
+</div>
+    </center>
+</body>
+</html>

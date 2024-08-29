@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+<html  >
+
+<body>
+
+{% block content %}
+
+<section data-bs-version="5.1" class="header16 cid-umlrvDaR45 mbr-fullscreen mbr-parallax-background" id="header17-6">
+
+  <div class="mbr-overlay" style="opacity: 0.1; background-color: rgb(255, 255, 255);"></div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="content-wrap col-12 col-md-12">
+        <h1 class="mbr-section-title mbr-fonts-style mbr-white mb-4 display-1"></h1>
+
+        <p class="mbr-fonts-style mbr-text mbr-white mb-4 display-7"></p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-bs-version="5.1" class="features1 cid-tIsi3HZcCy" id="features01-0">
+
+
+  
+  
+  <div class="container-fluid">
+    <div class="row justify-content-center mb-5">
+      <div class="col-12">
+        <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2"></h3>
+        
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      {% for i in categories %}
+      <div class="col-sm-6 col-md-12 mb-3 mb-lg-0 col-lg-4">
+        <div class="card-wrap card1">
+          <div class="image-wrap">
+            <img  src={{ i.picture }}>
+            
+          </div>
+          <div class="content-wrap">
+            <h5 class="mbr-card-title card-title1 mbr-fonts-style align-left mb-2 display-5" ><strong>{{ i.title }}</strong></h5>
+            <div class="mbr-section-btn"><a class="btn btn-secondary display-7" href="{% url 'catalog' i.title %}">Shop Now</a></div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+
+      
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}
+</body>
+</html>
